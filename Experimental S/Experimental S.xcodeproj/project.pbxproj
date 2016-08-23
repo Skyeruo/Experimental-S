@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		33EE887A1D6CAA1C00B5C4BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88791D6CAA1C00B5C4BC /* AppDelegate.swift */; };
-		33EE887C1D6CAA1C00B5C4BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE887B1D6CAA1C00B5C4BC /* ViewController.swift */; };
 		33EE887F1D6CAA1C00B5C4BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EE887D1D6CAA1C00B5C4BC /* Main.storyboard */; };
 		33EE88811D6CAA1C00B5C4BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EE88801D6CAA1C00B5C4BC /* Assets.xcassets */; };
 		33EE88841D6CAA1C00B5C4BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EE88821D6CAA1C00B5C4BC /* LaunchScreen.storyboard */; };
 		33EE888F1D6CAA1C00B5C4BC /* Experimental_STests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE888E1D6CAA1C00B5C4BC /* Experimental_STests.swift */; };
 		33EE889A1D6CAA1C00B5C4BC /* Experimental_SUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88991D6CAA1C00B5C4BC /* Experimental_SUITests.swift */; };
+		33EE88AD1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88AC1D6CAE4D00B5C4BC /* EntryPointViewController.swift */; };
+		33EE88AE1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88AC1D6CAE4D00B5C4BC /* EntryPointViewController.swift */; };
+		33EE88AF1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88AC1D6CAE4D00B5C4BC /* EntryPointViewController.swift */; };
+		33EE88B51D6CB38100B5C4BC /* TaskManagerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88B41D6CB38100B5C4BC /* TaskManagerMainViewController.swift */; };
+		33EE88B61D6CB38100B5C4BC /* TaskManagerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88B41D6CB38100B5C4BC /* TaskManagerMainViewController.swift */; };
+		33EE88B71D6CB38100B5C4BC /* TaskManagerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88B41D6CB38100B5C4BC /* TaskManagerMainViewController.swift */; };
+		33EE88BA1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88B91D6CB88100B5C4BC /* TaskDetailsViewController.swift */; };
+		33EE88BB1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88B91D6CB88100B5C4BC /* TaskDetailsViewController.swift */; };
+		33EE88BC1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88B91D6CB88100B5C4BC /* TaskDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,6 @@
 /* Begin PBXFileReference section */
 		33EE88761D6CAA1B00B5C4BC /* Experimental S.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Experimental S.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33EE88791D6CAA1C00B5C4BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33EE887B1D6CAA1C00B5C4BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		33EE887E1D6CAA1C00B5C4BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33EE88801D6CAA1C00B5C4BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33EE88831D6CAA1C00B5C4BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,9 @@
 		33EE88951D6CAA1C00B5C4BC /* Experimental SUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Experimental SUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33EE88991D6CAA1C00B5C4BC /* Experimental_SUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experimental_SUITests.swift; sourceTree = "<group>"; };
 		33EE889B1D6CAA1C00B5C4BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33EE88AC1D6CAE4D00B5C4BC /* EntryPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPointViewController.swift; sourceTree = "<group>"; };
+		33EE88B41D6CB38100B5C4BC /* TaskManagerMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerMainViewController.swift; sourceTree = "<group>"; };
+		33EE88B91D6CB88100B5C4BC /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +107,11 @@
 		33EE88781D6CAA1C00B5C4BC /* Experimental S */ = {
 			isa = PBXGroup;
 			children = (
-				33EE88791D6CAA1C00B5C4BC /* AppDelegate.swift */,
-				33EE887B1D6CAA1C00B5C4BC /* ViewController.swift */,
-				33EE887D1D6CAA1C00B5C4BC /* Main.storyboard */,
-				33EE88801D6CAA1C00B5C4BC /* Assets.xcassets */,
 				33EE88821D6CAA1C00B5C4BC /* LaunchScreen.storyboard */,
-				33EE88851D6CAA1C00B5C4BC /* Info.plist */,
+				33EE887D1D6CAA1C00B5C4BC /* Main.storyboard */,
+				33EE88AC1D6CAE4D00B5C4BC /* EntryPointViewController.swift */,
+				33EE88B81D6CB47C00B5C4BC /* XPSTaskManager */,
+				33EE88A71D6CAD7800B5C4BC /* Supporting Files */,
 			);
 			path = "Experimental S";
 			sourceTree = "<group>";
@@ -123,6 +132,25 @@
 				33EE889B1D6CAA1C00B5C4BC /* Info.plist */,
 			);
 			path = "Experimental SUITests";
+			sourceTree = "<group>";
+		};
+		33EE88A71D6CAD7800B5C4BC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33EE88791D6CAA1C00B5C4BC /* AppDelegate.swift */,
+				33EE88801D6CAA1C00B5C4BC /* Assets.xcassets */,
+				33EE88851D6CAA1C00B5C4BC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33EE88B81D6CB47C00B5C4BC /* XPSTaskManager */ = {
+			isa = PBXGroup;
+			children = (
+				33EE88B41D6CB38100B5C4BC /* TaskManagerMainViewController.swift */,
+				33EE88B91D6CB88100B5C4BC /* TaskDetailsViewController.swift */,
+			);
+			name = XPSTaskManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33EE887C1D6CAA1C00B5C4BC /* ViewController.swift in Sources */,
+				33EE88B51D6CB38100B5C4BC /* TaskManagerMainViewController.swift in Sources */,
+				33EE88AD1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
+				33EE88BA1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE887A1D6CAA1C00B5C4BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +295,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33EE88B61D6CB38100B5C4BC /* TaskManagerMainViewController.swift in Sources */,
+				33EE88AE1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
+				33EE88BB1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE888F1D6CAA1C00B5C4BC /* Experimental_STests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +306,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33EE88B71D6CB38100B5C4BC /* TaskManagerMainViewController.swift in Sources */,
+				33EE88AF1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
+				33EE88BC1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE889A1D6CAA1C00B5C4BC /* Experimental_SUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

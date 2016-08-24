@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33B76A6A1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
+		33B76A6B1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
+		33B76A6C1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
+		33B76A6D1D6D9A3E004C4961 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B76A691D6D9A3E004C4961 /* TaskCell.xib */; };
+		33B76A6E1D6D9A3E004C4961 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B76A691D6D9A3E004C4961 /* TaskCell.xib */; };
+		33B76A6F1D6D9A3E004C4961 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B76A691D6D9A3E004C4961 /* TaskCell.xib */; };
+		33B76A751D6DDC74004C4961 /* TaskSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B76A741D6DDC74004C4961 /* TaskSource.plist */; };
+		33B76A761D6DDC74004C4961 /* TaskSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B76A741D6DDC74004C4961 /* TaskSource.plist */; };
+		33B76A771D6DDC74004C4961 /* TaskSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B76A741D6DDC74004C4961 /* TaskSource.plist */; };
 		33EE887A1D6CAA1C00B5C4BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EE88791D6CAA1C00B5C4BC /* AppDelegate.swift */; };
 		33EE887F1D6CAA1C00B5C4BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33EE887D1D6CAA1C00B5C4BC /* Main.storyboard */; };
 		33EE88811D6CAA1C00B5C4BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33EE88801D6CAA1C00B5C4BC /* Assets.xcassets */; };
@@ -42,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33B76A681D6D9A3E004C4961 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		33B76A691D6D9A3E004C4961 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		33B76A741D6DDC74004C4961 /* TaskSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaskSource.plist; sourceTree = "<group>"; };
 		33EE88761D6CAA1B00B5C4BC /* Experimental S.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Experimental S.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33EE88791D6CAA1C00B5C4BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33EE887E1D6CAA1C00B5C4BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +161,9 @@
 			children = (
 				33EE88B41D6CB38100B5C4BC /* TaskManagerMainViewController.swift */,
 				33EE88B91D6CB88100B5C4BC /* TaskDetailsViewController.swift */,
+				33B76A681D6D9A3E004C4961 /* TaskCell.swift */,
+				33B76A691D6D9A3E004C4961 /* TaskCell.xib */,
+				33B76A741D6DDC74004C4961 /* TaskSource.plist */,
 			);
 			name = XPSTaskManager;
 			sourceTree = "<group>";
@@ -257,6 +272,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B76A6D1D6D9A3E004C4961 /* TaskCell.xib in Resources */,
+				33B76A751D6DDC74004C4961 /* TaskSource.plist in Resources */,
 				33EE88841D6CAA1C00B5C4BC /* LaunchScreen.storyboard in Resources */,
 				33EE88811D6CAA1C00B5C4BC /* Assets.xcassets in Resources */,
 				33EE887F1D6CAA1C00B5C4BC /* Main.storyboard in Resources */,
@@ -267,6 +284,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B76A761D6DDC74004C4961 /* TaskSource.plist in Resources */,
+				33B76A6E1D6D9A3E004C4961 /* TaskCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +293,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B76A771D6DDC74004C4961 /* TaskSource.plist in Resources */,
+				33B76A6F1D6D9A3E004C4961 /* TaskCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +309,7 @@
 				33EE88AD1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
 				33EE88BA1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE887A1D6CAA1C00B5C4BC /* AppDelegate.swift in Sources */,
+				33B76A6A1D6D9A3E004C4961 /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +321,7 @@
 				33EE88AE1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
 				33EE88BB1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE888F1D6CAA1C00B5C4BC /* Experimental_STests.swift in Sources */,
+				33B76A6B1D6D9A3E004C4961 /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +333,7 @@
 				33EE88AF1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
 				33EE88BC1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE889A1D6CAA1C00B5C4BC /* Experimental_SUITests.swift in Sources */,
+				33B76A6C1D6D9A3E004C4961 /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +544,7 @@
 				33EE88A01D6CAA1C00B5C4BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33EE88A11D6CAA1C00B5C4BC /* Build configuration list for PBXNativeTarget "Experimental STests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +553,7 @@
 				33EE88A31D6CAA1C00B5C4BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33EE88A41D6CAA1C00B5C4BC /* Build configuration list for PBXNativeTarget "Experimental SUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +562,7 @@
 				33EE88A61D6CAA1C00B5C4BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

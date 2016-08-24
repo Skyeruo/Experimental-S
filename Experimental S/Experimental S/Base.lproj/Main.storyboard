@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Entry Point View Controller-->
@@ -74,7 +73,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dza-04-BHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1317" y="426"/>
+            <point key="canvasLocation" x="1321" y="434"/>
         </scene>
         <!--Task Manager Main View Controller-->
         <scene sceneID="dmv-VB-gJ3">
@@ -88,40 +87,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lom-Xi-kDq">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lom-Xi-kDq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IMa-UM-DKC" id="PjA-1u-sgf"/>
+                                    <outlet property="delegate" destination="IMa-UM-DKC" id="OxS-9t-N2o"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KCR-8h-khC" firstAttribute="top" secondItem="lom-Xi-kDq" secondAttribute="bottom" id="6Pa-RD-1Ql"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lom-Xi-kDq" secondAttribute="trailing" id="L4Z-qi-S9i"/>
                             <constraint firstAttribute="trailing" secondItem="lom-Xi-kDq" secondAttribute="trailing" id="PqQ-tn-9I8"/>
-                            <constraint firstItem="lom-Xi-kDq" firstAttribute="top" secondItem="kfL-yy-jZ7" secondAttribute="bottom" id="Sxc-8l-XxE"/>
+                            <constraint firstItem="lom-Xi-kDq" firstAttribute="top" secondItem="kfL-yy-jZ7" secondAttribute="bottom" constant="-64" id="Sxc-8l-XxE"/>
                             <constraint firstItem="lom-Xi-kDq" firstAttribute="leading" secondItem="0ot-vN-U76" secondAttribute="leading" id="eEB-68-MFk"/>
-                            <constraint firstItem="lom-Xi-kDq" firstAttribute="leading" secondItem="0ot-vN-U76" secondAttribute="leadingMargin" id="fNr-Op-SLv"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="L4Z-qi-S9i"/>
-                                <exclude reference="fNr-Op-SLv"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Rak-zP-QTP"/>
                     <connections>
+                        <outlet property="tasksTableView" destination="lom-Xi-kDq" id="WKb-FI-CpV"/>
                         <segue destination="v5j-L7-oez" kind="show" identifier="mainToDetails" id="47F-P3-8qA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kts-R2-qlI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2132" y="426"/>
+            <point key="canvasLocation" x="2136" y="434"/>
         </scene>
-        <!--View Controller-->
+        <!--Task Details View Controller-->
         <scene sceneID="6Vh-iL-2c8">
             <objects>
-                <viewController id="v5j-L7-oez" sceneMemberID="viewController">
+                <viewController id="v5j-L7-oez" customClass="TaskDetailsViewController" customModule="Experimental_S" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="277-bN-rVe"/>
                         <viewControllerLayoutGuide type="bottom" id="dif-gn-xFE"/>
@@ -134,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh4-bH-Wt6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2955" y="426"/>
+            <point key="canvasLocation" x="2959" y="434"/>
         </scene>
     </scenes>
 </document>

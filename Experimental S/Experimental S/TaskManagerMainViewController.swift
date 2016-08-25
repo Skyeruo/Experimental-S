@@ -12,7 +12,8 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
 
     @IBOutlet weak var tasksTableView: UITableView!
     
-    var taskData: NSMutableArray!
+    var taskData: NSArray!
+    var selectedTask = TaskDataObject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,25 +22,25 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true);
         
-        //MARK: Initializations
+        //Initializations
         self.title = "Tasks";
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:CGFloat(92/255), green:CGFloat(172/255), blue:CGFloat(238/255), alpha:CGFloat(1))
-        
-        let nib = UINib(nibName: "TaskCell", bundle: nil)
-        self.tasksTableView.registerNib(nib, forCellReuseIdentifier: "taskCell")
-        
-        let path = NSBundle.mainBundle().pathForResource("TaskSource", ofType: "plist")
-        taskData = NSMutableArray(contentsOfFile: path!)
+        defineTableViewCell("TaskCell", reuseIdentifier: "taskCell", tableView: self.tasksTableView)
+        taskData = loadDataFromFile("TaskSource")
     }
     
     //MARK: Table View methods
+    func defineTableViewCell(name: String, reuseIdentifier: String, tableView: UITableView){
+        let nib = UINib(nibName: name, bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2;
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return taskData .count
+            return taskData! .count
         }else{
             return 0
         }
@@ -50,7 +51,7 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         
         let currentTask = taskData![indexPath.row] as! NSDictionary
         cell.titleLabel.text = (currentTask .objectForKey("title") as! String)
-        if((currentTask .objectForKey("subtitle")) as! String != ""){
+        if((currentTask .objectForKey("subtitle")) as? String != ""){
             cell.subtitleLabel.text = (currentTask .objectForKey("subtitle") as! String)
         }else{
             cell.titleAlignCenterConstraint.priority = 999
@@ -58,6 +59,30 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedTaskData = taskData[indexPath.row] as! NSDictionary
+        self.selectedTask.title = (selectedTaskData .objectForKey("title") as! String)
+        self.selectedTask.subtitle = (selectedTaskData .objectForKey("subtitle") as! String)
+        self.selectedTask.details = (selectedTaskData .objectForKey("details") as! String)
+        self.selectedTask.progress = (selectedTaskData .objectForKey("progress")  as! Int)
+        performSegueWithIdentifier("mainToDetails", sender: self)
+    }
+    
+    //MARK: Prepare for segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue .identifier == "mainToDetails" {
+            let nextVC = segue .destinationViewController as! TaskDetailsViewController
+            nextVC.task = selectedTask
+        }
+    }
+    
+    //MARK: Read/Write methods
+    func loadDataFromFile(fileName:String) -> NSArray {
+        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "plist")
+        let data = NSArray(contentsOfFile: path!)
+        return data!
     }
     
 }

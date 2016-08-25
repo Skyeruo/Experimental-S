@@ -12,10 +12,29 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var activeProject: Project?
+    
+    enum Project {
+        case XPSTaskManager
+        case Project2
+        case Project3
+    }
 
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        switch activeProject {
+//        case XPSTaskManager:
+//            break;
+//        default:
+//            break;
+//        }
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red:92.0/255.0, green:172.0/255.0, blue:238.0/255.0, alpha:1.0)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
         return true
     }
 
@@ -41,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func setActiveProject(project: Project){
+        activeProject = project
+        self .application(UIApplication .sharedApplication(), didFinishLaunchingWithOptions: nil)
+    }
 
 }
 

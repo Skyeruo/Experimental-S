@@ -10,11 +10,15 @@ import UIKit
 
 class TaskDetailsViewController: UIViewController {
 
-    
+    var task: TaskDataObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        NSLog("\(task?.title)")
+    }
     
 }

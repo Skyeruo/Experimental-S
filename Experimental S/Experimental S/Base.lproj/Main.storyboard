@@ -127,6 +127,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="RKl-ci-R3c">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="vRU-bv-5ZH"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh4-bH-Wt6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

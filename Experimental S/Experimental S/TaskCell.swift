@@ -13,6 +13,8 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleAlignCenterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var taskDetailsView: UIView!
+    @IBOutlet weak var addTaskView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

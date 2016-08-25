@@ -18,7 +18,9 @@ class TaskDetailsViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        NSLog("\(task?.title)")
+        
+        //Initializations
+        self.title = task?.title;
     }
     
 }

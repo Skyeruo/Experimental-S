@@ -23,9 +23,15 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         super.viewWillAppear(true);
         
         //Initializations
-        self.title = "Tasks";
+        self.title = "My tasks";
         defineTableViewCell("TaskCell", reuseIdentifier: "taskCell", tableView: self.tasksTableView)
         taskData = loadDataFromFile("TaskSource")
+        self.tasksTableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        //Deselect table view rows
+        self.tasksTableView.indexPathsForSelectedRows?.forEach {
+            self.tasksTableView.deselectRowAtIndexPath($0, animated: true)
+        }
     }
     
     //MARK: Table View methods
@@ -42,31 +48,44 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         if section == 0 {
             return taskData! .count
         }else{
-            return 0
+            return 1
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: TaskCell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskCell
         
-        let currentTask = taskData![indexPath.row] as! NSDictionary
-        cell.titleLabel.text = (currentTask .objectForKey("title") as! String)
-        if((currentTask .objectForKey("subtitle")) as? String != ""){
-            cell.subtitleLabel.text = (currentTask .objectForKey("subtitle") as! String)
+        //prolong separator line to whole screen
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
+        
+        //cell content
+        if indexPath.section == 0 {
+            let currentTask = taskData![indexPath.row] as! NSDictionary
+            cell.titleLabel.text = (currentTask .objectForKey("title") as! String)
+            if((currentTask .objectForKey("subtitle")) as? String != ""){
+                cell.subtitleLabel.text = (currentTask .objectForKey("subtitle") as! String)
+            }else{
+                cell.titleAlignCenterConstraint.priority = 999
+                cell.subtitleLabel.hidden = true
+            }
         }else{
-            cell.titleAlignCenterConstraint.priority = 999
-            cell.subtitleLabel.hidden = true
+            cell.addTaskView.hidden = false
+            cell.taskDetailsView.hidden = true
         }
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedTaskData = taskData[indexPath.row] as! NSDictionary
-        self.selectedTask.title = (selectedTaskData .objectForKey("title") as! String)
-        self.selectedTask.subtitle = (selectedTaskData .objectForKey("subtitle") as! String)
-        self.selectedTask.details = (selectedTaskData .objectForKey("details") as! String)
-        self.selectedTask.progress = (selectedTaskData .objectForKey("progress")  as! Int)
+        if indexPath.section == 0 {
+            let selectedTaskData = taskData[indexPath.row] as! NSDictionary
+            self.selectedTask.title = (selectedTaskData .objectForKey("title") as! String)
+            self.selectedTask.subtitle = (selectedTaskData .objectForKey("subtitle") as! String)
+            self.selectedTask.details = (selectedTaskData .objectForKey("details") as! String)
+            self.selectedTask.progress = (selectedTaskData .objectForKey("progress")  as! Int)
+        }
         performSegueWithIdentifier("mainToDetails", sender: self)
     }
     

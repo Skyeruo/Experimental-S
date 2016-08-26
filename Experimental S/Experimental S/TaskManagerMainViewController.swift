@@ -14,6 +14,7 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
     
     var taskData: NSArray!
     var selectedTask = TaskDataObject()
+    var isAddingTask: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         taskData = loadDataFromFile("TaskSource")
         self.tasksTableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        //Deselect table view rows
+        //Table view row selection
         self.tasksTableView.indexPathsForSelectedRows?.forEach {
             self.tasksTableView.deselectRowAtIndexPath($0, animated: true)
         }
@@ -54,6 +55,7 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: TaskCell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         //prolong separator line to whole screen
         cell.preservesSuperviewLayoutMargins = false
@@ -63,6 +65,12 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         //cell content
         if indexPath.section == 0 {
             let currentTask = taskData![indexPath.row] as! NSDictionary
+            
+            //task progress indicator
+            let currentTaskProgress = currentTask .objectForKey("progress") as! CGFloat
+            cell.progressViewWidthConstraint.constant = currentTaskProgress * cell.frame.size.width / 100
+            
+            //cell fields
             cell.titleLabel.text = (currentTask .objectForKey("title") as! String)
             if((currentTask .objectForKey("subtitle")) as? String != ""){
                 cell.subtitleLabel.text = (currentTask .objectForKey("subtitle") as! String)
@@ -85,6 +93,9 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
             self.selectedTask.subtitle = (selectedTaskData .objectForKey("subtitle") as! String)
             self.selectedTask.details = (selectedTaskData .objectForKey("details") as! String)
             self.selectedTask.progress = (selectedTaskData .objectForKey("progress")  as! Int)
+            self.isAddingTask = false
+        }else{
+            self.isAddingTask = true
         }
         performSegueWithIdentifier("mainToDetails", sender: self)
     }
@@ -94,6 +105,10 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         if segue .identifier == "mainToDetails" {
             let nextVC = segue .destinationViewController as! TaskDetailsViewController
             nextVC.task = selectedTask
+            nextVC.isEditing = self.isAddingTask
+            if (self.isAddingTask == true) {
+                nextVC.task?.title = "New task"
+            }
         }
     }
     

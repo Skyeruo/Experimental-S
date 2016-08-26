@@ -13,8 +13,7 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tasksTableView: UITableView!
     
     var taskData: NSArray!
-    var selectedTask = TaskDataObject()
-    var isAddingTask: Bool!
+    var selectedIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +25,15 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         //Initializations
         self.title = "My tasks";
         defineTableViewCell("TaskCell", reuseIdentifier: "taskCell", tableView: self.tasksTableView)
-        taskData = loadDataFromFile("TaskSource")
+        taskData = loadDataFromFile("TaskSource.plist")
         self.tasksTableView.tableFooterView = UIView(frame: CGRect.zero)
         
         //Table view row selection
         self.tasksTableView.indexPathsForSelectedRows?.forEach {
             self.tasksTableView.deselectRowAtIndexPath($0, animated: true)
         }
+        
+        self.tasksTableView .reloadData()
     }
     
     //MARK: Table View methods
@@ -66,6 +67,9 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         if indexPath.section == 0 {
             let currentTask = taskData![indexPath.row] as! NSDictionary
             
+            cell.addTaskView.hidden = true
+            cell.taskDetailsView.hidden = false
+            
             //task progress indicator
             let currentTaskProgress = currentTask .objectForKey("progress") as! CGFloat
             cell.progressViewWidthConstraint.constant = currentTaskProgress * cell.frame.size.width / 100
@@ -88,14 +92,9 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
-            let selectedTaskData = taskData[indexPath.row] as! NSDictionary
-            self.selectedTask.title = (selectedTaskData .objectForKey("title") as! String)
-            self.selectedTask.subtitle = (selectedTaskData .objectForKey("subtitle") as! String)
-            self.selectedTask.details = (selectedTaskData .objectForKey("details") as! String)
-            self.selectedTask.progress = (selectedTaskData .objectForKey("progress")  as! Int)
-            self.isAddingTask = false
+            self.selectedIndex = indexPath.row
         }else{
-            self.isAddingTask = true
+            self.selectedIndex = -1
         }
         performSegueWithIdentifier("mainToDetails", sender: self)
     }
@@ -104,18 +103,23 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue .identifier == "mainToDetails" {
             let nextVC = segue .destinationViewController as! TaskDetailsViewController
-            nextVC.task = selectedTask
-            nextVC.isEditing = self.isAddingTask
-            if (self.isAddingTask == true) {
-                nextVC.task?.title = "New task"
+            nextVC.taskData = self.taskData
+            nextVC.selectedIndex = self.selectedIndex
+            if self.selectedIndex == -1 {
+                nextVC.isEditing = true;
+                nextVC.title = "New task"
+            }else{
+                nextVC.isEditing = false;
             }
         }
     }
     
     //MARK: Read/Write methods
     func loadDataFromFile(fileName:String) -> NSArray {
-        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "plist")
-        let data = NSArray(contentsOfFile: path!)
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths.objectAtIndex(0) as! NSString
+        let path = documentsDirectory.stringByAppendingPathComponent(fileName)
+        let data = NSArray(contentsOfFile: path)
         return data!
     }
     

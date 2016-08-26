@@ -17,7 +17,9 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var progressSlider: UISlider!
 
-    var task: TaskDataObject?
+    var task = TaskDataObject()
+    var taskData: NSArray!
+    var selectedIndex: Int?
     var isEditing: Bool!
     
     override func viewDidLoad() {
@@ -28,14 +30,21 @@ class TaskDetailsViewController: UIViewController {
         super.viewWillAppear(true)
         
         //Initializations
-        self.title = task?.title
+        if self.selectedIndex != -1 {
+            self .mapTaskFromData()
+            self.title = task.title
+        }
+        
+        self.titleErrorLabel.text = "A title is required."
         self .setTextFieldStyle()
+        
         if self.isEditing == true {
             self.topRightButton.image = UIImage(named:"ic_confirmButton")
             self .setFieldsEnabled(true)
         }else{
             self.topRightButton.image = UIImage(named:"ic_editButton")
             self .setFieldsEnabled(false)
+            self .populateFields(self.task)
         }
     }
     
@@ -45,9 +54,14 @@ class TaskDetailsViewController: UIViewController {
             self.isEditing = true
             self .setFieldsEnabled(true)
         }else{
-            self.topRightButton.image = UIImage(named:"ic_editButton")
-            self.isEditing = false
-            self .setFieldsEnabled(false)
+            if self.titleTextField.text != "" {
+                self .saveDataToFile("TaskSource.plist")
+                self.topRightButton.image = UIImage(named:"ic_editButton")
+                self.isEditing = false
+                self .setFieldsEnabled(false)
+            }else{
+                self.titleErrorLabel.hidden = false
+            }
         }
         
     }
@@ -82,5 +96,39 @@ class TaskDetailsViewController: UIViewController {
             break;
         }
     }
-
+    
+    func populateFields(task: TaskDataObject){
+        self.titleTextField.text = task.title
+        self.subtitleTextField.text = task.subtitle
+        self.detailsTextView.text = task.details
+        self.progressSlider.setValue(Float(task.progress), animated: true)
+    }
+    
+    func mapTaskFromData(){
+        let selectedTaskData = self.taskData .objectAtIndex(self.selectedIndex!) as! NSDictionary
+        self.task.title = selectedTaskData .valueForKey("title") as! String
+        self.task.subtitle = selectedTaskData .valueForKey("subtitle") as! String
+        self.task.details = selectedTaskData .valueForKey("details") as! String
+        self.task.progress = selectedTaskData .valueForKey("progress") as! Int
+    }
+    
+    func saveDataToFile(name: String) {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths.objectAtIndex(0) as! NSString
+        let path = documentsDirectory.stringByAppendingPathComponent(name)
+        
+        let editedTask: NSMutableDictionary = ["title": self.titleTextField.text!]
+        editedTask.setObject(self.subtitleTextField.text!, forKey: "subtitle")
+        editedTask.setObject(self.detailsTextView.text!, forKey: "details")
+        editedTask.setObject(Int(self.progressSlider.value), forKey: "progress")
+        
+        let newTaskData = self.taskData .mutableCopy()
+        if self.selectedIndex != -1 {
+            newTaskData .replaceObjectAtIndex(self.selectedIndex!, withObject: editedTask)
+        }else{
+            newTaskData .addObject(editedTask)
+        }
+        
+        newTaskData .writeToFile(path, atomically: false)
+    }
 }

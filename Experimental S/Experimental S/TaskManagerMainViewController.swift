@@ -19,108 +19,109 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true);
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         //Initializations
         self.title = "My tasks";
         defineTableViewCell("TaskCell", reuseIdentifier: "taskCell", tableView: self.tasksTableView)
-        taskData = loadDataFromFile("TaskSource.plist")
+        self.taskData = loadDataFromFile("TaskSource")
         self.tasksTableView.tableFooterView = UIView(frame: CGRect.zero)
         
         //Table view row selection
         self.tasksTableView.indexPathsForSelectedRows?.forEach {
-            self.tasksTableView.deselectRowAtIndexPath($0, animated: true)
+            self.tasksTableView.deselectRow(at: $0, animated: true)
         }
         
         self.tasksTableView .reloadData()
     }
     
     //MARK: Table View methods
-    func defineTableViewCell(name: String, reuseIdentifier: String, tableView: UITableView){
+    func defineTableViewCell(_ name: String, reuseIdentifier: String, tableView: UITableView){
         let nib = UINib(nibName: name, bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(nib, forCellReuseIdentifier: reuseIdentifier)
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2;
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return taskData! .count
+            return self.taskData! .count
         }else{
             return 1
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: TaskCell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskCell
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: TaskCell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         //prolong separator line to whole screen
         cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsetsZero
-        cell.layoutMargins = UIEdgeInsetsZero
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
         
         //cell content
         if indexPath.section == 0 {
-            let currentTask = taskData![indexPath.row] as! NSDictionary
+            let currentTask = self.taskData![indexPath.row] as! NSDictionary
             
-            cell.addTaskView.hidden = true
-            cell.taskDetailsView.hidden = false
+            cell.addTaskView.isHidden = true
+            cell.taskDetailsView.isHidden = false
             
             //task progress indicator
-            let currentTaskProgress = currentTask .objectForKey("progress") as! CGFloat
+            let currentTaskProgress = currentTask .object(forKey: "progress") as! CGFloat
             cell.progressViewWidthConstraint.constant = currentTaskProgress * cell.frame.size.width / 100
             
             //cell fields
-            cell.titleLabel.text = (currentTask .objectForKey("title") as! String)
-            if((currentTask .objectForKey("subtitle")) as? String != ""){
-                cell.subtitleLabel.text = (currentTask .objectForKey("subtitle") as! String)
+            cell.titleLabel.text = (currentTask .object(forKey: "title") as! String)
+            if((currentTask .object(forKey: "subtitle")) as? String != ""){
+                cell.subtitleLabel.text = (currentTask .object(forKey: "subtitle") as! String)
             }else{
                 cell.titleAlignCenterConstraint.priority = 999
-                cell.subtitleLabel.hidden = true
+                cell.subtitleLabel.isHidden = true
             }
         }else{
-            cell.addTaskView.hidden = false
-            cell.taskDetailsView.hidden = true
+            cell.addTaskView.isHidden = false
+            cell.taskDetailsView.isHidden = true
         }
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             self.selectedIndex = indexPath.row
         }else{
             self.selectedIndex = -1
         }
-        performSegueWithIdentifier("mainToDetails", sender: self)
+        performSegue(withIdentifier: "mainToDetails", sender: self)
     }
     
     //MARK: Prepare for segue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue .identifier == "mainToDetails" {
-            let nextVC = segue .destinationViewController as! TaskDetailsViewController
+            let nextVC = segue .destination as! TaskDetailsViewController
             nextVC.taskData = self.taskData
             nextVC.selectedIndex = self.selectedIndex
             if self.selectedIndex == -1 {
-                nextVC.isEditing = true;
+                nextVC.isUserEditing = true
                 nextVC.title = "New task"
             }else{
-                nextVC.isEditing = false;
+                nextVC.isUserEditing = false
             }
         }
     }
     
     //MARK: Read/Write methods
-    func loadDataFromFile(fileName:String) -> NSArray {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-        let documentsDirectory = paths.objectAtIndex(0) as! NSString
-        let path = documentsDirectory.stringByAppendingPathComponent(fileName)
-        let data = NSArray(contentsOfFile: path)
-        return data!
+    func loadDataFromFile(_ fileName:String) -> NSArray? {
+        if let path:String = Bundle.main.path(forResource: fileName, ofType: "plist"){
+            let data = NSArray(contentsOfFile: path)
+            return data
+        }else{
+            return nil
+        }
     }
     
 }

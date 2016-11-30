@@ -15,9 +15,9 @@ class EntryPointViewController: UIViewController {
         
     }
     
-    @IBAction func summonXPSTaskManager(sender: UIButton) {
+    @IBAction func summonXPSTaskManager(_ sender: UIButton) {
         NSLog("Starting Task Manager")
-        performSegueWithIdentifier("entryToTaskManager", sender: self)
+        performSegue(withIdentifier: "entryToTaskManager", sender: self)
     }
     
 }

@@ -48,22 +48,132 @@
                                     <action selector="summonXPSTaskManager:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ce-cu-i9l"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3Z-L4-7ed">
+                                <rect key="frame" x="70" y="171" width="180" height="50"/>
+                                <color key="backgroundColor" red="0.98948138952255249" green="0.48568063974380493" blue="0.25788608193397522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Wgl-S1-eQF"/>
+                                    <constraint firstAttribute="height" constant="50" id="lZJ-pU-RtK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                <state key="normal" title="XPSDuelGame">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="summonXPSDuelGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MF6-RX-d3I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Pza-0f-FoY" firstAttribute="top" secondItem="S9p-2b-qeW" secondAttribute="bottom" constant="20" id="88O-df-f4e"/>
+                            <constraint firstItem="a3Z-L4-7ed" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9xt-Xq-Zig"/>
                             <constraint firstItem="S9p-2b-qeW" firstAttribute="leading" secondItem="Pza-0f-FoY" secondAttribute="leading" id="P0m-0o-x8l"/>
+                            <constraint firstItem="a3Z-L4-7ed" firstAttribute="top" secondItem="Pza-0f-FoY" secondAttribute="bottom" constant="30" id="Uxz-6z-AXK"/>
                             <constraint firstItem="S9p-2b-qeW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="dw3-W2-XxA"/>
                             <constraint firstItem="Pza-0f-FoY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qeK-M7-9t6"/>
                         </constraints>
                     </view>
                     <connections>
                         <segue destination="FMk-i5-IqQ" kind="show" identifier="entryToTaskManager" id="vpI-vV-v04"/>
+                        <segue destination="v6t-wg-4De" kind="show" identifier="entryToDuelGame" id="f8q-zx-yhj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="510" y="925"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Veh-df-gvh">
+            <objects>
+                <navigationController id="v6t-wg-4De" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YvC-yY-1vz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="luH-iL-RQp" kind="relationship" relationship="rootViewController" id="FaW-yV-uNh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBL-3V-NMB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="1406"/>
+        </scene>
+        <!--Duel Game Main View Controller-->
+        <scene sceneID="3Iy-8J-gtn">
+            <objects>
+                <viewController id="luH-iL-RQp" customClass="DuelGameMainViewController" customModule="Experimental_S" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tVi-9W-Eok"/>
+                        <viewControllerLayoutGuide type="bottom" id="6ip-Nj-5Hw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I4e-97-egp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYP-Nk-Ng1">
+                                <rect key="frame" x="85" y="209" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.98948138949999997" green="0.48568063970000003" blue="0.25788608190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9FB-As-2Hq"/>
+                                    <constraint firstAttribute="width" constant="150" id="GPh-Kd-SSg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                <state key="normal" title="Melee">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="meleeButtonPressed:" destination="luH-iL-RQp" eventType="touchUpInside" id="8P9-sY-t48"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELD-49-Dbp">
+                                <rect key="frame" x="85" y="309" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.98948138949999997" green="0.48568063970000003" blue="0.25788608190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iAd-21-7Ub"/>
+                                    <constraint firstAttribute="width" constant="150" id="sc5-w2-ekl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                <state key="normal" title="Ranged">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="rangedButtonPressed:" destination="luH-iL-RQp" eventType="touchUpInside" id="gDJ-Uo-C9f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cYP-Nk-Ng1" firstAttribute="centerY" secondItem="I4e-97-egp" secondAttribute="centerY" constant="-50" id="0M7-gi-FfN"/>
+                            <constraint firstItem="ELD-49-Dbp" firstAttribute="centerX" secondItem="I4e-97-egp" secondAttribute="centerX" id="GWa-7R-RbH"/>
+                            <constraint firstItem="ELD-49-Dbp" firstAttribute="centerY" secondItem="I4e-97-egp" secondAttribute="centerY" constant="50" id="evY-un-WZC"/>
+                            <constraint firstItem="cYP-Nk-Ng1" firstAttribute="centerX" secondItem="I4e-97-egp" secondAttribute="centerX" id="xlc-B8-53m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4tM-s7-Gcu"/>
+                    <connections>
+                        <outlet property="meleeButton" destination="cYP-Nk-Ng1" id="VoR-mz-gTT"/>
+                        <outlet property="rangedButton" destination="ELD-49-Dbp" id="cRX-U8-HjN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sV6-Wx-Bho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2136" y="1407"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n5O-xf-2eh">

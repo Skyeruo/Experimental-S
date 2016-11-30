@@ -20,4 +20,9 @@ class EntryPointViewController: UIViewController {
         performSegue(withIdentifier: "entryToTaskManager", sender: self)
     }
     
+    @IBAction func summonXPSDuelGame(_ sender: UIButton) {
+        NSLog("Starting Duel Game")
+        performSegue(withIdentifier: "entryToDuelGame", sender: self)
+    }
+    
 }

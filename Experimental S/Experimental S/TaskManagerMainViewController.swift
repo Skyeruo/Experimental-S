@@ -23,7 +23,7 @@ class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITa
         super.viewWillAppear(true)
         
         //Initializations
-        self.title = "My tasks";
+        self.title = "My tasks"
         defineTableViewCell("TaskCell", reuseIdentifier: "taskCell", tableView: self.tasksTableView)
         self.taskData = loadDataFromFile("TaskSource")
         self.tasksTableView.tableFooterView = UIView(frame: CGRect.zero)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		336A5EF31DEF414D00DB7C73 /* DuelGameMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A5EF21DEF414D00DB7C73 /* DuelGameMainViewController.swift */; };
 		33B76A6A1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
 		33B76A6B1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
 		33B76A6C1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		336A5EF21DEF414D00DB7C73 /* DuelGameMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuelGameMainViewController.swift; sourceTree = "<group>"; };
 		33B76A681D6D9A3E004C4961 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		33B76A691D6D9A3E004C4961 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		33B76A741D6DDC74004C4961 /* TaskSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TaskSource.plist; path = "Experimental S/TaskSource.plist"; sourceTree = SOURCE_ROOT; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		336A5EF11DEF410A00DB7C73 /* XPSDuelGame */ = {
+			isa = PBXGroup;
+			children = (
+				336A5EF21DEF414D00DB7C73 /* DuelGameMainViewController.swift */,
+			);
+			name = XPSDuelGame;
+			sourceTree = "<group>";
+		};
 		33EE886D1D6CAA1B00B5C4BC = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 				33EE887D1D6CAA1C00B5C4BC /* Main.storyboard */,
 				33EE88AC1D6CAE4D00B5C4BC /* EntryPointViewController.swift */,
 				33EE88B81D6CB47C00B5C4BC /* XPSTaskManager */,
+				336A5EF11DEF410A00DB7C73 /* XPSDuelGame */,
 				33EE88A71D6CAD7800B5C4BC /* Supporting Files */,
 			);
 			path = "Experimental S";
@@ -318,6 +329,7 @@
 				33EE88AD1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
 				33EE88BA1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE887A1D6CAA1C00B5C4BC /* AppDelegate.swift in Sources */,
+				336A5EF31DEF414D00DB7C73 /* DuelGameMainViewController.swift in Sources */,
 				33B76A6A1D6D9A3E004C4961 /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

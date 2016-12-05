@@ -15,7 +15,6 @@ class DuelGameMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
     }
     
@@ -36,6 +35,7 @@ class DuelGameMainViewController: UIViewController {
             self.meleeButton.alpha = 0
         }, completion: { _ in
             //start game
+            self .startMeleeGame()
         })
     }
     
@@ -48,7 +48,16 @@ class DuelGameMainViewController: UIViewController {
             self.rangedButton.alpha = 0
         }, completion: { _ in
             //start game
+            self .startRangedGame()
         })
+    }
+    
+    func startMeleeGame() {
+        
+    }
+    
+    func startRangedGame() {
+        
     }
     
 }

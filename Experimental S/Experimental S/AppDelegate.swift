@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     enum Project {
         case xpsTaskManager
-        case project2
-        case project3
+        case xpsDuelGame
+        case xpsJourney
     }
 
     

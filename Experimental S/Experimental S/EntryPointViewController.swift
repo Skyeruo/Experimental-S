@@ -25,4 +25,9 @@ class EntryPointViewController: UIViewController {
         performSegue(withIdentifier: "entryToDuelGame", sender: self)
     }
     
+    @IBAction func summonXPSJourney(_ sender: UIButton) {
+        NSLog("Starting Journey")
+        performSegue(withIdentifier: "entryToJourney", sender: self)
+    }
+    
 }

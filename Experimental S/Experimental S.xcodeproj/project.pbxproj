@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330DD9321E4B3C320032B360 /* AidleMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330DD9311E4B3C320032B360 /* AidleMainViewController.swift */; };
 		336A5EF31DEF414D00DB7C73 /* DuelGameMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A5EF21DEF414D00DB7C73 /* DuelGameMainViewController.swift */; };
+		339F6C961E23E9B7007AB6A6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F6C951E23E9B7007AB6A6 /* CoreDataManager.swift */; };
+		339F6CA51E23EAFD007AB6A6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 339F6CA31E23EAFD007AB6A6 /* DataModel.xcdatamodeld */; };
 		33B76A6A1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
 		33B76A6B1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
 		33B76A6C1D6D9A3E004C4961 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B76A681D6D9A3E004C4961 /* TaskCell.swift */; };
@@ -55,7 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		330DD9311E4B3C320032B360 /* AidleMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AidleMainViewController.swift; sourceTree = "<group>"; };
 		336A5EF21DEF414D00DB7C73 /* DuelGameMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuelGameMainViewController.swift; sourceTree = "<group>"; };
+		339F6C951E23E9B7007AB6A6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		339F6CA41E23EAFD007AB6A6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		33B76A681D6D9A3E004C4961 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		33B76A691D6D9A3E004C4961 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		33B76A741D6DDC74004C4961 /* TaskSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TaskSource.plist; path = "Experimental S/TaskSource.plist"; sourceTree = SOURCE_ROOT; };
@@ -102,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		330DD92C1E4B3B700032B360 /* XPSAidle */ = {
+			isa = PBXGroup;
+			children = (
+				330DD9311E4B3C320032B360 /* AidleMainViewController.swift */,
+			);
+			name = XPSAidle;
+			sourceTree = "<group>";
+		};
 		336A5EF11DEF410A00DB7C73 /* XPSDuelGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +160,7 @@
 				33EE88B81D6CB47C00B5C4BC /* XPSTaskManager */,
 				336A5EF11DEF410A00DB7C73 /* XPSDuelGame */,
 				33C22A7D1DF5DE1D009731DC /* XPSJourney */,
+				330DD92C1E4B3B700032B360 /* XPSAidle */,
 				33EE88A71D6CAD7800B5C4BC /* Supporting Files */,
 			);
 			path = "Experimental S";
@@ -175,6 +190,8 @@
 				33EE88791D6CAA1C00B5C4BC /* AppDelegate.swift */,
 				33EE88801D6CAA1C00B5C4BC /* Assets.xcassets */,
 				33EE88851D6CAA1C00B5C4BC /* Info.plist */,
+				339F6C951E23E9B7007AB6A6 /* CoreDataManager.swift */,
+				339F6CA31E23EAFD007AB6A6 /* DataModel.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -332,12 +349,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				33C22A7F1DF5DEB3009731DC /* JourneyStartViewController.swift in Sources */,
+				339F6CA51E23EAFD007AB6A6 /* DataModel.xcdatamodeld in Sources */,
 				33EE88B51D6CB38100B5C4BC /* TaskManagerMainViewController.swift in Sources */,
 				33B9B05C1D6F079F00E54B8B /* TaskDataObject.swift in Sources */,
 				33EE88AD1D6CAE4D00B5C4BC /* EntryPointViewController.swift in Sources */,
 				33EE88BA1D6CB88100B5C4BC /* TaskDetailsViewController.swift in Sources */,
 				33EE887A1D6CAA1C00B5C4BC /* AppDelegate.swift in Sources */,
 				336A5EF31DEF414D00DB7C73 /* DuelGameMainViewController.swift in Sources */,
+				330DD9321E4B3C320032B360 /* AidleMainViewController.swift in Sources */,
+				339F6C961E23E9B7007AB6A6 /* CoreDataManager.swift in Sources */,
 				33B76A6A1D6D9A3E004C4961 /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Experimental S/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FabioCarvalho.Experimental-S";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Experimental S/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FabioCarvalho.Experimental-S";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -599,6 +621,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		339F6CA31E23EAFD007AB6A6 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				339F6CA41E23EAFD007AB6A6 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 339F6CA41E23EAFD007AB6A6 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 33EE886E1D6CAA1B00B5C4BC /* Project object */;
 }

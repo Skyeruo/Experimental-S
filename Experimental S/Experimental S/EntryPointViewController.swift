@@ -30,4 +30,9 @@ class EntryPointViewController: UIViewController {
         performSegue(withIdentifier: "entryToJourney", sender: self)
     }
     
+    @IBAction func summonXPSAidle(_ sender: UIButton) {
+        NSLog("Starting Aidle")
+        performSegue(withIdentifier: "entryToAidle", sender: self)
+    }
+    
 }

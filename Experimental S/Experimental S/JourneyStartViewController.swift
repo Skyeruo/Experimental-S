@@ -6,6 +6,10 @@
 //  Copyright © 2016 Fábio Carvalho. All rights reserved.
 //
 
+/*
+Created to test more complex animations between screens and UI element states.
+ */
+
 import UIKit
 
 class JourneyStartViewController: UIViewController {

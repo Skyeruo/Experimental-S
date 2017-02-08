@@ -6,17 +6,32 @@
 //  Copyright © 2016 Fábio Carvalho. All rights reserved.
 //
 
-import UIKit
+/*
+ Simple task management app. Nothing much to see here, used mainly to experiment with persistent data storage and Core Data.
+ */
 
+import UIKit
+import CoreData
+
+@available(iOS 10.0, *)
 class TaskManagerMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tasksTableView: UITableView!
     
     var taskData: NSArray!
     var selectedIndex: Int!
+    var container: NSPersistentContainer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Database initialization
+//        container = NSPersistentContainer(name: "Experimental S")
+//        container.loadPersistentStores { storeDescription, error in
+//            if let error = error {
+//                print("Unresolved error \(error)")
+//            }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

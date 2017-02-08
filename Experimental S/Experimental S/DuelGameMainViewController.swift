@@ -6,6 +6,10 @@
 //  Copyright © 2016 Fábio Carvalho. All rights reserved.
 //
 
+/*
+Game created to experiment with different interactions between UI elements.
+ */
+
 import UIKit
 
 class DuelGameMainViewController: UIViewController {

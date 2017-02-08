@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case xpsTaskManager
         case xpsDuelGame
         case xpsJourney
+        case xpsAidle
     }
     
     lazy var dataManager = CoreDataManager();

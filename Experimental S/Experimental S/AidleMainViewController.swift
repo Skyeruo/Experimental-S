@@ -11,8 +11,13 @@
  */
 
 import UIKit
+import QuartzCore
 
 class AidleMainViewController: UIViewController {
+    
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+    var progressBarAnimator: UIViewPropertyAnimator!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +29,41 @@ class AidleMainViewController: UIViewController {
         
         //Initializations
         self .title = "Aidle"
-        self .navigationController? .navigationBar .barTintColor = UIColor .white
-        self .navigationController? .navigationBar .barStyle = .blackOpaque
+        self .navigationController? .navigationBar .barTintColor = UIColor(red:0.0, green:0.0, blue:0.0, alpha:1.0)
+        self .navigationController? .navigationBar .titleTextAttributes = [NSForegroundColorAttributeName: UIColor .white]
+        UIApplication .shared .statusBarStyle = UIStatusBarStyle .lightContent
+        self .view .backgroundColor = UIColor .black
     }
-
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        self .setProgressBarAnimator()
+        self .progressBarAnimator .startAnimation()
+    }
+    
+    
+    //MARK: Progress bar methods
+    func setProgressBarAnimator(){
+        self .progressBarAnimator = UIViewPropertyAnimator(duration: 5.0, curve: .linear){
+            self .progressBar .setProgress(1.0, animated: false)
+            self .view .layoutIfNeeded()
+        }
+        
+        self .progressBarAnimator .addCompletion { (end) in
+            self .progressBar .setProgress(0.0, animated: false)
+            self .view .layoutIfNeeded()
+            self .setProgressBarAnimator()
+            self .progressBarAnimator .startAnimation()
+        }
+    }
+    
+    @IBAction func stopProgress(_ sender: UIButton) {
+        self .progressBarAnimator .pauseAnimation()
+    }
+    
+    @IBAction func startProgress(_ sender: Any) {
+        self .progressBarAnimator .startAnimation()
+    }
+    
 }

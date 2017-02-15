@@ -16,22 +16,22 @@ class EntryPointViewController: UIViewController {
     }
     
     @IBAction func summonXPSTaskManager(_ sender: UIButton) {
-        NSLog("Starting Task Manager")
+        print("Starting Task Manager")
         performSegue(withIdentifier: "entryToTaskManager", sender: self)
     }
     
     @IBAction func summonXPSDuelGame(_ sender: UIButton) {
-        NSLog("Starting Duel Game")
+        print("Starting Duel Game")
         performSegue(withIdentifier: "entryToDuelGame", sender: self)
     }
     
     @IBAction func summonXPSJourney(_ sender: UIButton) {
-        NSLog("Starting Journey")
+        print("Starting Journey")
         performSegue(withIdentifier: "entryToJourney", sender: self)
     }
     
     @IBAction func summonXPSAidle(_ sender: UIButton) {
-        NSLog("Starting Aidle")
+        print("Starting Aidle")
         performSegue(withIdentifier: "entryToAidle", sender: self)
     }
     

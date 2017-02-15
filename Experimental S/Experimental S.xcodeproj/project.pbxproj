@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		330DD9321E4B3C320032B360 /* AidleMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330DD9311E4B3C320032B360 /* AidleMainViewController.swift */; };
+		33222CE11E54C6750067A9EB /* AidleEncounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33222CE01E54C6750067A9EB /* AidleEncounterViewController.swift */; };
 		336A5EF31DEF414D00DB7C73 /* DuelGameMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336A5EF21DEF414D00DB7C73 /* DuelGameMainViewController.swift */; };
 		339F6C961E23E9B7007AB6A6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F6C951E23E9B7007AB6A6 /* CoreDataManager.swift */; };
 		339F6CA51E23EAFD007AB6A6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 339F6CA31E23EAFD007AB6A6 /* DataModel.xcdatamodeld */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		330DD9311E4B3C320032B360 /* AidleMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AidleMainViewController.swift; sourceTree = "<group>"; };
+		33222CE01E54C6750067A9EB /* AidleEncounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AidleEncounterViewController.swift; sourceTree = "<group>"; };
 		336A5EF21DEF414D00DB7C73 /* DuelGameMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuelGameMainViewController.swift; sourceTree = "<group>"; };
 		339F6C951E23E9B7007AB6A6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		339F6CA41E23EAFD007AB6A6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				330DD9311E4B3C320032B360 /* AidleMainViewController.swift */,
+				33222CE01E54C6750067A9EB /* AidleEncounterViewController.swift */,
 			);
 			name = XPSAidle;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				336A5EF31DEF414D00DB7C73 /* DuelGameMainViewController.swift in Sources */,
 				330DD9321E4B3C320032B360 /* AidleMainViewController.swift in Sources */,
 				339F6C961E23E9B7007AB6A6 /* CoreDataManager.swift in Sources */,
+				33222CE11E54C6750067A9EB /* AidleEncounterViewController.swift in Sources */,
 				33B76A6A1D6D9A3E004C4961 /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -496,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -515,6 +519,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FabioCarvalho.Experimental-S";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -528,6 +533,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FabioCarvalho.Experimental-S";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
